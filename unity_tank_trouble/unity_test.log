@@ -1,0 +1,332 @@
+[Licensing::Module] Trying to connect to existing licensing client channel...
+[Licensing::IpcConnector] Successfully connected to: "LicenseClient-lenovo" at "2026-06-29T14:13:08.170276Z"
+[Licensing::Client] Code 10 while verifying Licensing Client signature (process Id: 15484, path: "C:/Program Files/Unity/Hub/Editor/2022.3.62f3c1/Editor/Data/Resources/Licensing/Client/Unity.Licensing.Client.exe")
+[Licensing::Module] LicensingClient has failed validation; ignoring
+[Licensing::Client] Handshaking with LicensingClient:
+  Version:                 1.16.2+bdef8f5
+  Session Id:              c9b32c7b5bc047598db6fc1bff8f0e2f
+  Correlation Id:          682b833b2df5e5986113d32545f18129
+  External correlation Id: 6772400432313260318
+  Machine Id:              Rcmiz4rnf93su028pXkeG4q9tP0=
+[Licensing::Module] Successfully connected to LicensingClient on channel: "LicenseClient-lenovo" (connect: 0.00s, validation: 0.01s, handshake: 0.04s)
+[Licensing::IpcConnector] Successfully connected to: "LicenseClient-lenovo-notifications" at "2026-06-29T14:13:08.2280585Z"
+[Licensing::Module] Error: Access token is unavailable; failed to update
+[Licensing::Client] Successfully updated license
+Built from '2022.3/china_unity/release' branch; Version is '2022.3.62f3c1 (1623fc0bbb97) revision 1451004'; Using compiler version '192829333'; Build Type 'Release'
+OS: 'Windows 11  (10.0.26200) 64bit CoreCountrySpecific' Language: 'zh' Physical Memory: 32373 MB
+[Licensing::Client] Successfully resolved entitlement details
+[Licensing::Module] Serial number assigned to: "F4-U56T-YP5D-5BFH-ABEA-XXXX"
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 0
+[Licensing::Client] Successfully resolved entitlement details
+
+COMMAND LINE ARGUMENTS:
+C:\Program Files\Unity\Hub\Editor\2022.3.62f3c1\Editor\Unity.exe
+-batchmode
+-projectPath
+C:\Users\lenovo\Desktop\tank trouble\unity_tank_trouble
+-runTests
+-testPlatform
+EditMode
+-testResults
+C:\Users\lenovo\Desktop\tank trouble\unity_tank_trouble\unity_test_results.xml
+-logFile
+C:\Users\lenovo\Desktop\tank trouble\unity_tank_trouble\unity_test.log
+Successfully changed project path to: C:\Users\lenovo\Desktop\tank trouble\unity_tank_trouble
+C:/Users/lenovo/Desktop/tank trouble/unity_tank_trouble
+[UnityMemory] Configuration Parameters - Can be set up in boot.config
+    "memorysetup-bucket-allocator-granularity=16"
+    "memorysetup-bucket-allocator-bucket-count=8"
+    "memorysetup-bucket-allocator-block-size=33554432"
+    "memorysetup-bucket-allocator-block-count=8"
+    "memorysetup-main-allocator-block-size=16777216"
+    "memorysetup-thread-allocator-block-size=16777216"
+    "memorysetup-gfx-main-allocator-block-size=16777216"
+    "memorysetup-gfx-thread-allocator-block-size=16777216"
+    "memorysetup-cache-allocator-block-size=4194304"
+    "memorysetup-typetree-allocator-block-size=2097152"
+    "memorysetup-profiler-bucket-allocator-granularity=16"
+    "memorysetup-profiler-bucket-allocator-bucket-count=8"
+    "memorysetup-profiler-bucket-allocator-block-size=33554432"
+    "memorysetup-profiler-bucket-allocator-block-count=8"
+    "memorysetup-profiler-allocator-block-size=16777216"
+    "memorysetup-profiler-editor-allocator-block-size=1048576"
+    "memorysetup-temp-allocator-size-main=16777216"
+    "memorysetup-job-temp-allocator-block-size=2097152"
+    "memorysetup-job-temp-allocator-block-size-background=1048576"
+    "memorysetup-job-temp-allocator-reduction-small-platforms=262144"
+    "memorysetup-allocator-temp-initial-block-size-main=262144"
+    "memorysetup-allocator-temp-initial-block-size-worker=262144"
+    "memorysetup-temp-allocator-size-background-worker=32768"
+    "memorysetup-temp-allocator-size-job-worker=262144"
+    "memorysetup-temp-allocator-size-preload-manager=33554432"
+    "memorysetup-temp-allocator-size-nav-mesh-worker=65536"
+    "memorysetup-temp-allocator-size-audio-worker=65536"
+    "memorysetup-temp-allocator-size-cloud-worker=32768"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gfx=262144"
+Player connection [15440]  Target information:
+
+Player connection [15440]  * "[IP] 192.168.1.5 [Port] 55504 [Flags] 2 [Guid] 86572376 [EditorId] 86572376 [Version] 1048832 [Id] WindowsEditor(7,LAPTOP-169U7B86) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
+
+Player connection [15440] Host joined multi-casting on [225.0.0.222:54997]...
+Player connection [15440] Host joined alternative multi-casting on [225.0.0.222:34997]...
+Input System module state changed to: Initialized.
+[PhysX] Initialized MultithreadedTaskDispatcher with 22 workers.
+[Package Manager] UpmClient::Connect -- Connected to IPC stream "Upm-17160" after 0.3 seconds.
+[Package Manager] Restoring resolved packages state from cache
+[Licensing::Client] Successfully resolved entitlement details
+[Package Manager] Registered 18 packages:
+  Packages from [https://packages.unity.cn]:
+    com.unity.inputsystem@1.14.0 (location: C:\Users\lenovo\Desktop\tank trouble\unity_tank_trouble\Library\PackageCache\com.unity.inputsystem@1.14.0)
+    com.unity.test-framework@1.1.33 (location: C:\Users\lenovo\Desktop\tank trouble\unity_tank_trouble\Library\PackageCache\com.unity.test-framework@1.1.33)
+    com.unity.textmeshpro@3.0.7 (location: C:\Users\lenovo\Desktop\tank trouble\unity_tank_trouble\Library\PackageCache\com.unity.textmeshpro@3.0.7)
+    com.unity.timeline@1.7.7 (location: C:\Users\lenovo\Desktop\tank trouble\unity_tank_trouble\Library\PackageCache\com.unity.timeline@1.7.7)
+    com.unity.ext.nunit@1.0.6 (location: C:\Users\lenovo\Desktop\tank trouble\unity_tank_trouble\Library\PackageCache\com.unity.ext.nunit@1.0.6)
+  Built-in packages:
+    com.unity.2d.sprite@1.0.0 (location: C:\Users\lenovo\Desktop\tank trouble\unity_tank_trouble\Library\PackageCache\com.unity.2d.sprite@1.0.0)
+    com.unity.2d.tilemap@1.0.0 (location: C:\Users\lenovo\Desktop\tank trouble\unity_tank_trouble\Library\PackageCache\com.unity.2d.tilemap@1.0.0)
+    com.unity.ugui@1.0.0 (location: C:\Users\lenovo\Desktop\tank trouble\unity_tank_trouble\Library\PackageCache\com.unity.ugui@1.0.0)
+    com.unity.modules.ui@1.0.0 (location: C:\Users\lenovo\Desktop\tank trouble\unity_tank_trouble\Library\PackageCache\com.unity.modules.ui@1.0.0)
+    com.unity.modules.imgui@1.0.0 (location: C:\Users\lenovo\Desktop\tank trouble\unity_tank_trouble\Library\PackageCache\com.unity.modules.imgui@1.0.0)
+    com.unity.modules.audio@1.0.0 (location: C:\Users\lenovo\Desktop\tank trouble\unity_tank_trouble\Library\PackageCache\com.unity.modules.audio@1.0.0)
+    com.unity.modules.director@1.0.0 (location: C:\Users\lenovo\Desktop\tank trouble\unity_tank_trouble\Library\PackageCache\com.unity.modules.director@1.0.0)
+    com.unity.modules.animation@1.0.0 (location: C:\Users\lenovo\Desktop\tank trouble\unity_tank_trouble\Library\PackageCache\com.unity.modules.animation@1.0.0)
+    com.unity.modules.particlesystem@1.0.0 (location: C:\Users\lenovo\Desktop\tank trouble\unity_tank_trouble\Library\PackageCache\com.unity.modules.particlesystem@1.0.0)
+    com.unity.modules.jsonserialize@1.0.0 (location: C:\Users\lenovo\Desktop\tank trouble\unity_tank_trouble\Library\PackageCache\com.unity.modules.jsonserialize@1.0.0)
+    com.unity.modules.uielements@1.0.0 (location: C:\Users\lenovo\Desktop\tank trouble\unity_tank_trouble\Library\PackageCache\com.unity.modules.uielements@1.0.0)
+    com.unity.modules.tilemap@1.0.0 (location: C:\Users\lenovo\Desktop\tank trouble\unity_tank_trouble\Library\PackageCache\com.unity.modules.tilemap@1.0.0)
+    com.unity.modules.physics2d@1.0.0 (location: C:\Users\lenovo\Desktop\tank trouble\unity_tank_trouble\Library\PackageCache\com.unity.modules.physics2d@1.0.0)
+[Subsystems] No new subsystems found in resolved package list.
+Package Manager log level set to [2]
+[Package Manager] Done registering packages in 0.56 seconds
+Refreshing native plugins compatible for Editor in 1.65 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 2022.3.62f3c1 (1623fc0bbb97)
+[Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2022.3.62f3c1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path C:/Users/lenovo/Desktop/tank trouble/unity_tank_trouble/Assets
+GfxDevice: creating device client; threaded=0; jobified=0
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce RTX 4060 Laptop GPU (ID=0x28e0)
+    Vendor:   NVIDIA
+    VRAM:     7957 MB
+    Driver:   32.0.15.6626
+[Licensing::Client] Successfully resolved entitlement details
+Initialize mono
+Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2022.3.62f3c1/Editor/Data/Managed'
+Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2022.3.62f3c1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
+Mono config path = 'C:/Program Files/Unity/Hub/Editor/2022.3.62f3c1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56160
+Using cacheserver namespaces - metadata:defaultmetadata, artifacts:defaultartifacts
+Using cacheserver namespaces - metadata:defaultmetadata, artifacts:defaultartifacts
+ImportWorker Server TCP listen port: 0
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2022.3.62f3c1/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2022.3.62f3c1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.029775 seconds.
+- Loaded All Assemblies, in  0.392 seconds
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.216 seconds
+Domain Reload Profiling: 601ms
+	BeginReloadAssembly (139ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (0ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (1ms)
+	RebuildCommonClasses (30ms)
+	RebuildNativeTypeToScriptingClass (6ms)
+	initialDomainReloadingComplete (92ms)
+	LoadAllAssembliesAndSetupDomain (117ms)
+		LoadAssemblies (134ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (113ms)
+			TypeCache.Refresh (112ms)
+				TypeCache.ScanAssembly (99ms)
+			ScanForSourceGeneratedMonoScriptInfo (0ms)
+			ResolveRequiredComponents (0ms)
+	FinalizeReload (216ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (180ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (21ms)
+			SetLoadedEditorAssemblies (4ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (2ms)
+			ProcessInitializeOnLoadAttributes (114ms)
+			ProcessInitializeOnLoadMethodAttributes (40ms)
+			AfterProcessingInitializeOnLoad (0ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (0ms)
+[Licensing::Client] Successfully resolved entitlement details
+Application.AssetDatabase Initial Refresh Start
+info: Microsoft.Hosting.Lifetime[14]
+      Now listening on: http://localhost:80
+info: Microsoft.Hosting.Lifetime[0]
+      Application started. Press Ctrl+C to shut down.
+info: Microsoft.Hosting.Lifetime[0]
+      Hosting environment: Production
+info: Microsoft.Hosting.Lifetime[0]
+      Content root path: C:\Users\lenovo\Desktop\tank trouble\unity_tank_trouble\
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/2 POST http://ilpp/UnityILPP.PostProcessing/Ping application/grpc -
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'gRPC - /UnityILPP.PostProcessing/Ping'
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'gRPC - /UnityILPP.PostProcessing/Ping'
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/2 POST http://ilpp/UnityILPP.PostProcessing/Ping application/grpc - - 200 - application/grpc 33.1154ms
+Starting: C:\Program Files\Unity\Hub\Editor\2022.3.62f3c1\Editor\Data\bee_backend.exe --ipc --defer-dag-verification --dagfile="Library/Bee/1900b0aE.dag" --continue-on-failure --profile="Library/Bee/backend1.traceevents" ScriptAssemblies
+WorkingDir: C:/Users/lenovo/Desktop/tank trouble/unity_tank_trouble
+DisplayProgressbar: Compiling Scripts
+ExitCode: 0 Duration: 0s149ms
+*** Tundra build success (0.10 seconds), 0 items updated, 231 evaluated
+AssetDatabase: script compilation time: 0.628075s
+Begin MonoManager ReloadAssembly
+Total cache size 68425300
+Total cache size after purge 68425300
+- Loaded All Assemblies, in  0.463 seconds
+Refreshing native plugins compatible for Editor in 1.04 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Refreshing native plugins compatible for Editor in 1.23 ms, found 0 plugins.
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.344 seconds
+Domain Reload Profiling: 798ms
+	BeginReloadAssembly (173ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (4ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (20ms)
+	RebuildCommonClasses (28ms)
+	RebuildNativeTypeToScriptingClass (6ms)
+	initialDomainReloadingComplete (39ms)
+	LoadAllAssembliesAndSetupDomain (208ms)
+		LoadAssemblies (288ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (37ms)
+			TypeCache.Refresh (29ms)
+				TypeCache.ScanAssembly (25ms)
+			ScanForSourceGeneratedMonoScriptInfo (6ms)
+			ResolveRequiredComponents (2ms)
+	FinalizeReload (344ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (258ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (14ms)
+			SetLoadedEditorAssemblies (3ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (57ms)
+			ProcessInitializeOnLoadAttributes (139ms)
+			ProcessInitializeOnLoadMethodAttributes (21ms)
+			AfterProcessingInitializeOnLoad (23ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (6ms)
+Asset Pipeline Refresh (id=ab6d980e10667b84ba4dd8fcffa0af58): Total: 2.592 seconds - Initiated by InitialRefreshV2(ForceSynchronousImport)
+	Summary:
+		Imports: total=0 (actual=0, local cache=0, cache server=0)
+		Asset DB Process Time: managed=0 ms, native=1021 ms
+		Asset DB Callback time: managed=11 ms, native=1 ms
+		Scripting: domain reloads=1, domain reload time=888 ms, compile time=630 ms, other=39 ms
+		Project Asset Count: scripts=1896, non-scripts=524
+		Asset File Changes: new=0, changed=0, moved=0, deleted=0
+		Scan Filter Count: 0
+	InvokeBeforeRefreshCallbacks: 1.964ms
+	ApplyChangesToAssetFolders: 0.023ms
+	Scan: 236.601ms
+	OnSourceAssetsModified: 0.001ms
+	GetAllGuidsForCategorization: 0.243ms
+	CategorizeAssets: 23.023ms
+	ImportOutOfDateAssets: 359.932ms (-278.346ms without children)
+		CompileScripts: 630.097ms
+		ReloadNativeAssets: 0.001ms
+		UnloadImportedAssets: 6.985ms
+		EnsureUptoDateAssetsAreRegisteredWithGuidPM: 0.465ms
+		InitializingProgressBar: 0.000ms
+		PostProcessAllAssetNotificationsAddChangedAssets: 0.001ms
+		OnDemandSchedulerStart: 0.729ms
+	PostProcessAllAssets: 11.320ms
+	GatherAllCurrentPrimaryArtifactRevisions: 0.000ms
+	UnloadStreamsBegin: 0.230ms
+	PersistCurrentRevisions: 0.059ms
+	UnloadStreamsEnd: 0.008ms
+	GenerateScriptTypeHashes: 0.733ms
+	Untracked: 1958.754ms
+Application.AssetDatabase Initial Refresh End
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.06 seconds
+Scanning for USB devices : 2.019ms
+Initializing Unity extensions:
+[MODES] ModeService[none].Initialize
+[MODES] ModeService[none].LoadModes
+[MODES] Loading mode Default (0) for mode-current-id-unity_tank_trouble
+[PhysX] Initialized MultithreadedTaskDispatcher with 22 workers.
+ProgressiveSceneManager::Cancel()
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 37 unused Assets / (470.7 KB). Loaded Objects now: 2087.
+Memory consumption went from 93.2 MB to 92.7 MB.
+Total: 2.407100 ms (FindLiveObjects: 0.132800 ms CreateObjectMapping: 0.021000 ms MarkObjects: 2.057700 ms  DeleteObjects: 0.194800 ms)
+
+[Project] Loading completed in 6.270 seconds
+	Project init time: 				4.970 seconds
+		Template init time: 		0.000 seconds
+		Package Manager init time: 		0.310 seconds
+		Asset Database init time: 		0.847 seconds
+		Global illumination init time: 	0.005 seconds
+		Assemblies load time: 			0.637 seconds
+		Unity extensions init time: 	0.001 seconds
+		Asset Database refresh time: 	0.000 seconds
+	Scene opening time: 			0.305 seconds
+##utp:{"type":"ProjectInfo","version":2,"phase":"Immediate","time":1782742394411,"processId":17160,"projectLoad":6.2700325,"projectInit":4.9703133,"templateInit":0.0,"packageManagerInit":0.310228,"assetDatabaseInit":0.8470786,"globalIlluminationInit":0.0049679,"assembliesLoad":0.6365844,"unityExtensionsInit":0.0013459,"assetDatabaseRefresh":0.0,"sceneOpening":0.3053386}
+##utp:{"type":"EditorInfo","version":2,"phase":"Immediate","time":1782742394411,"processId":17160,"editorVersion":"2022.3.62f3c1 (1623fc0bbb97)","branch":"2022.3/china_unity/release","buildType":"Release","platform":"Windows"}
+Running tests for EditMode
+Executing tests with settings: test mode = EditMode
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+UnityEditor.TestTools.TestRunner.CommandLineTest.Executer:InitializeAndExecuteRun (string[]) (at ./Library/PackageCache/com.unity.test-framework@1.1.33/UnityEditor.TestRunner/CommandLineTest/Executer.cs:47)
+UnityEditor.TestTools.TestRunner.CommandLineTest.TestStarter:UpdateWatch () (at ./Library/PackageCache/com.unity.test-framework@1.1.33/UnityEditor.TestRunner/CommandLineTest/TestStarter.cs:50)
+UnityEditor.EditorApplication:Internal_CallUpdateFunctions ()
+
+(Filename: ./Library/PackageCache/com.unity.test-framework@1.1.33/UnityEditor.TestRunner/CommandLineTest/Executer.cs Line: 47)
+
+[UnityConnectServicesConfig] config is NOT valid, switching to default
+Created GICache directory at C:/Users/lenovo/AppData/LocalLow/Unity/Caches/GiCache. Took: 0.076s, timestamps: [6.279 - 6.354]
+gi::BakeBackendSwitch: switching bake backend from 3 to 1.
+[00:00:00] Builtin Sky manager started.
+[00:00:00] Finished 1 Bake Ambient Probe job (0.00s execute, 0.00s integrate, 0.05s wallclock)
+[PhysX] Initialized MultithreadedTaskDispatcher with 22 workers.
+Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 1 unused Assets / (0.5 KB). Loaded Objects now: 2113.
+Memory consumption went from 92.2 MB to 92.2 MB.
+Total: 2.602600 ms (FindLiveObjects: 0.094400 ms CreateObjectMapping: 0.021200 ms MarkObjects: 2.473200 ms  DeleteObjects: 0.012900 ms)
+
+[00:00:00] Finished 2 Bake Ambient Probe jobs (0.00s execute, 0.00s integrate, 0.15s wallclock)
+DisplayProgressbar: Test Runner
+[PhysX] Initialized MultithreadedTaskDispatcher with 22 workers.
+Unloading 1 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 0 unused Assets / (0 B). Loaded Objects now: 2117.
+Memory consumption went from 91.9 MB to 91.9 MB.
+Total: 2.792500 ms (FindLiveObjects: 0.091700 ms CreateObjectMapping: 0.022200 ms MarkObjects: 2.674300 ms  DeleteObjects: 0.003700 ms)
+
+Saving results to: C:\Users\lenovo\Desktop\tank trouble\unity_tank_trouble\unity_test_results.xml
+Start importing ProjectSettings/ProjectSettings.asset using Guid(00000000000000004000000000000000) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 22 workers.
+ -> (artifact id: '82375a0611be5e04dcfc59ec7da1eace') in 0.008081 seconds
+Refreshing native plugins compatible for Editor in 1.29 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=bc7bc80e7fd478548841cdbcd0c32f46): Total: 0.045 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+[PhysX] Initialized MultithreadedTaskDispatcher with 22 workers.
+Input System module state changed to: ShutdownInProgress.
+Input System polling thread exited.
+Input System module state changed to: Shutdown.
+[Licensing::IpcConnector] LicenseClient-lenovo-notifications channel disconnected successfully.
+[Licensing::IpcConnector] LicenseClient-lenovo channel disconnected successfully.

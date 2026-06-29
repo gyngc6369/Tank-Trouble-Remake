@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<test-run id="2" testcasecount="46" result="Passed" total="46" passed="46" failed="0" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-06-29 14:13:14Z" end-time="2026-06-29 14:13:14Z" duration="0.1466516">
+  <test-suite type="TestSuite" id="1064" name="unity_tank_trouble" fullname="unity_tank_trouble" runstate="Runnable" testcasecount="46" result="Passed" start-time="2026-06-29 14:13:14Z" end-time="2026-06-29 14:13:14Z" duration="0.146652" total="46" passed="46" failed="0" inconclusive="0" skipped="0" asserts="0">
+    <properties />
+    <test-suite type="Assembly" id="1124" name="TankTrouble.Tests.dll" fullname="C:/Users/lenovo/Desktop/tank trouble/unity_tank_trouble/Library/ScriptAssemblies/TankTrouble.Tests.dll" runstate="Runnable" testcasecount="46" result="Passed" start-time="2026-06-29 14:13:14Z" end-time="2026-06-29 14:13:14Z" duration="0.136096" total="46" passed="46" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <properties>
+        <property name="_PID" value="17160" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="EditMode" />
+      </properties>
+      <test-suite type="TestSuite" id="1125" name="TankTrouble" fullname="TankTrouble" runstate="Runnable" testcasecount="46" result="Passed" start-time="2026-06-29 14:13:14Z" end-time="2026-06-29 14:13:14Z" duration="0.135777" total="46" passed="46" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-suite type="TestSuite" id="1126" name="Tests" fullname="TankTrouble.Tests" runstate="Runnable" testcasecount="46" result="Passed" start-time="2026-06-29 14:13:14Z" end-time="2026-06-29 14:13:14Z" duration="0.133367" total="46" passed="46" failed="0" inconclusive="0" skipped="0" asserts="0">
+          <properties />
+          <test-suite type="TestFixture" id="1065" name="AIBehaviorTests" fullname="TankTrouble.Tests.AIBehaviorTests" classname="TankTrouble.Tests.AIBehaviorTests" runstate="Runnable" testcasecount="22" result="Passed" start-time="2026-06-29 14:13:14Z" end-time="2026-06-29 14:13:14Z" duration="0.065070" total="22" passed="22" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-case id="1072" name="CenterlineFollowerKeepsCurrentWaypointUntilTankIsCentered" fullname="TankTrouble.Tests.AIBehaviorTests.CenterlineFollowerKeepsCurrentWaypointUntilTankIsCentered" methodname="CenterlineFollowerKeepsCurrentWaypointUntilTankIsCentered" classname="TankTrouble.Tests.AIBehaviorTests" runstate="Runnable" seed="108276878" result="Passed" start-time="2026-06-29 14:13:14Z" end-time="2026-06-29 14:13:14Z" duration="0.018293" asserts="0">
+              <properties />
+            </test-case>
+            <test-case id="1070" name="CenterlineFollowerRecentersToCorridorAxisBeforeMovingAcrossCell" fullname="TankTrouble.Tests.AIBehaviorTests.CenterlineFollowerRecentersToCorridorAxisBeforeMovingAcrossCell" methodname="CenterlineFollowerRecentersToCorridorAxisBeforeMovingAcrossCell" classname="TankTrouble.Tests.AIBehaviorTests" runstate="Runnable" seed="2037079124" result="Passed" start-time="2026-06-29 14:13:14Z" end-time="2026-06-29 14:13:14Z" duration="0.000996" asserts="0">
+              <properties />
+            </test-case>
+            <test-case id="1071" name="CenterlineFollowerReturnsToCellCenterBeforeTurn" fullname="TankTrouble.Tests.AIBehaviorTests.CenterlineFollowerReturnsToCellCenterBeforeTurn" methodname="CenterlineFollowerReturnsToCellCenterBeforeTurn" classname="TankTrouble.Tests.AIBehaviorTests" runstate="Runnable" seed="456826953" result="Passed" start-time="2026-06-29 14:13:14Z" end-time="2026-06-29 14:13:14Z" duration="0.000672" asserts="0">
+              <properties />
+            </test-case>
+            <test-case id="1086" name="CenterTaskFollowerConsumesWaypointAtTargetCenter" fullname="TankTrouble.Tests.AIBehaviorTests.CenterTaskFollowerConsumesWaypointAtTargetCenter" methodname="CenterTaskFollowerConsumesWaypointAtTargetCenter" classname="TankTrouble.Tests.AIBehaviorTests" runstate="Runnable" seed="210261007" result="Passed" start-time="2026-06-29 14:13:14Z" end-time="2026-06-29 14:13:14Z" duration="0.002145" asserts="0">
+              <properties />
+            </test-case>
+            <test-case id="1085" name="CenterTaskFollowerDisallowsReplanDuringCenterToCenterDrive" fullname="TankTrouble.Tests.AIBehaviorTests.CenterTaskFollowerDisallowsReplanDuringCenterToCenterDrive" methodname="CenterTaskFollowerDisallowsReplanDuringCenterToCenterDrive" classname="TankTrouble.Tests.AIBehaviorTests" runstate="Runnable" seed="370406484" result="Passed" start-time="2026-06-29 14:13:14Z" end-time="2026-06-29 14:13:14Z" duration="0.003362" asserts="0">
+              <properties />
+            </test-case>
+            <test-case id="1084" name="CenterTaskFollowerDrivesForwardWhenAligned" fullname="TankTrouble.Tests.AIBehaviorTests.CenterTaskFollowerDrivesForwardWhenAligned" methodname="CenterTaskFollowerDrivesForwardWhenAligned" classname="TankTrouble.Tests.AIBehaviorTests" runstate="Runnable" seed="1046631168" result="Passed" start-time="2026-06-29 14:13:14Z" end-time="2026-06-29 14:13:14Z" duration="0.000553" asserts="0">
+              <properties />
+            </test-case>
+            <test-case id="1082" name="CenterTaskFollowerMovesToCenterWhenFarFromAxis" fullname="TankTrouble.Tests.AIBehaviorTests.CenterTaskFollowerMovesToCenterWhenFarFromAxis" methodname="CenterTaskFollowerMovesToCenterWhenFarFromAxis" classname="TankTrouble.Tests.AIBehaviorTests" runstate="Runnable" seed="1860792009" result="Passed" start-time="2026-06-29 14:13:14Z" end-time="2026-06-29 14:13:14Z" duration="0.000659" asserts="0">
+              <properties />
+            </test-case>
+            <test-case id="1081" name="CenterTaskFollowerRecentersToAxisBeforeDriving" fullname="TankTrouble.Tests.AIBehaviorTests.CenterTaskFollowerRecentersToAxisBeforeDriving" methodname="CenterTaskFollowerRecentersToAxisBeforeDriving" classname="TankTrouble.Tests.AIBehaviorTests" runstate="Runnable" seed="803431220" result="Passed" start-time="2026-06-29 14:13:14Z" end-time="2026-06-29 14:13:14Z" duration="0.000743" asserts="0">
+              <properties />
+            </test-case>
+            <test-case id="1083" name="CenterTaskFollowerTurnsBeforeLeavingCenteredCell" fullname="TankTrouble.Tests.AIBehaviorTests.CenterTaskFollowerTurnsBeforeLeavingCenteredCell" methodname="CenterTaskFollowerTurnsBeforeLeavingCenteredCell" classname="TankTrouble.Tests.AIBehaviorTests" runstate="Runnable" seed="1045406858" result="Passed" start-time="2026-06-29 14:13:14Z" end-time="2026-06-29 14:13:14Z" duration="0.001689" asserts="0">
+              <properties />
+            </test-case>
+            <test-case id="1068" name="DriverLocksTurnDirectionForLargeAngleChanges" fullname="TankTrouble.Tests.AIBehaviorTests.DriverLocksTurnDirectionForLargeAngleChanges" methodname="DriverLocksTurnDirectionForLargeAngleChanges" classname="TankTrouble.Tests.AIBehaviorTests" runstate="Runnable" seed="213624759" result="Passed" start-time="2026-06-29 14:13:14Z" end-time="2026-06-29 14:13:14Z" duration="0.000877" asserts="0">
+              <properties />
+            </test-case>
+            <test-case id="1067" name="EvadeControllerChoosesMovingCommandWhenTrajectoryCrossesTank" fullname="TankTrouble.Tests.AIBehaviorTests.EvadeControllerChoosesMovingCommandWhenTrajectoryCrossesTank" methodname="EvadeControllerChoosesMovingCommandWhenTrajectoryCrossesTank" classname="TankTrouble.Tests.AIBehaviorTests" runstate="Runnable" seed="112000334" result="Passed" start-time="2026-06-29 14:13:14Z" end-time="2026-06-29 14:13:14Z" duration="0.007118" asserts="0">
+              <properties />
+            </test-case>
+            <test-case id="1074" name="PathExecutorOffersLocalCorrectionWithoutDroppingPath" fullname="TankTrouble.Tests.AIBehaviorTests.PathExecutorOffersLocalCorrectionWithoutDroppingPath" methodname="PathExecutorOffersLocalCorrectionWithoutDroppingPath" classname="TankTrouble.Tests.AIBehaviorTests" runstate="Runnable" seed="1606218337" result="Passed" start-time="2026-06-29 14:13:14Z" end-time="2026-06-29 14:13:14Z" duration="0.001273" asserts="0">
+              <properties />
+            </test-case>
+            <test-case id="1073" name="PathExecutorRecentersBeforeCommittedCorner" fullname="TankTrouble.Tests.AIBehaviorTests.PathExecutorRecentersBeforeCommittedCorner" methodname="PathExecutorRecentersBeforeCommittedCorner" classname="TankTrouble.Tests.AIBehaviorTests" runstate="Runnable" seed="883980367" result="Passed" start-time="2026-06-29 14:13:14Z" end-time="2026-06-29 14:13:14Z" duration="0.001611" asserts="0">
+              <properties />
+            </test-case>
+            <test-case id="1066" name="PathFollowerUsesOpenNeighborInsteadOfDirectBlockedDirection" fullname="TankTrouble.Tests.AIBehaviorTests.PathFollowerUsesOpenNeighborInsteadOfDirectBlockedDirection" methodname="PathFollowerUsesOpenNeighborInsteadOfDirectBlockedDirection" classname="TankTrouble.Tests.AIBehaviorTests" runstate="Runnable" seed="1205864742" result="Passed" start-time="2026-06-29 14:13:14Z" end-time="2026-06-29 14:13:14Z" duration="0.002113" asserts="0">
+              <properties />
+            </test-case>
+            <test-case id="1069" name="PursueGoalStaysNearReachableEnemyArea" fullname="TankTrouble.Tests.AIBehaviorTests.PursueGoalStaysNearReachableEnemyArea" methodname="PursueGoalStaysNearReachableEnemyArea" classname="TankTrouble.Tests.AIBehaviorTests" runstate="Runnable" seed="629433129" result="Passed" start-time="2026-06-29 14:13:14Z" end-time="2026-06-29 14:13:14Z" duration="0.002643" asserts="0">
+              <properties />
+            </test-case>
+            <test-case id="1077" name="SegmentFollowerKeepsCornerWaypointUntilTankReachesCenter" fullname="TankTrouble.Tests.AIBehaviorTests.SegmentFollowerKeepsCornerWaypointUntilTankReachesCenter" methodname="SegmentFollowerKeepsCornerWaypointUntilTankReachesCenter" classname="TankTrouble.Tests.AIBehaviorTests" runstate="Runnable" seed="1715346070" result="Passed" start-time="2026-06-29 14:13:14Z" end-time="2026-06-29 14:13:14Z" duration="0.002509" asserts="0">
+              <properties />
+            </test-case>
+            <test-case id="1078" name="SegmentFollowerLocksExitWhenEnteringJunction" fullname="TankTrouble.Tests.AIBehaviorTests.SegmentFollowerLocksExitWhenEnteringJunction" methodname="SegmentFollowerLocksExitWhenEnteringJunction" classname="TankTrouble.Tests.AIBehaviorTests" runstate="Runnable" seed="48003305" result="Passed" start-time="2026-06-29 14:13:14Z" end-time="2026-06-29 14:13:14Z" duration="0.002290" asserts="0">
+              <properties />
+            </test-case>
+            <test-case id="1079" name="SegmentFollowerLocksThroughJunctionClusterToFirstNormalCell" fullname="TankTrouble.Tests.AIBehaviorTests.SegmentFollowerLocksThroughJunctionClusterToFirstNormalCell" methodname="SegmentFollowerLocksThroughJunctionClusterToFirstNormalCell" classname="TankTrouble.Tests.AIBehaviorTests" runstate="Runnable" seed="275760950" result="Passed" start-time="2026-06-29 14:13:14Z" end-time="2026-06-29 14:13:14Z" duration="0.001072" asserts="0">
+              <properties />
+            </test-case>
+            <test-case id="1076" name="SegmentFollowerMovesForwardWhenAlignedToSegment" fullname="TankTrouble.Tests.AIBehaviorTests.SegmentFollowerMovesForwardWhenAlignedToSegment" methodname="SegmentFollowerMovesForwardWhenAlignedToSegment" classname="TankTrouble.Tests.AIBehaviorTests" runstate="Runnable" seed="165489584" result="Passed" start-time="2026-06-29 14:13:14Z" end-time="2026-06-29 14:13:14Z" duration="0.000776" asserts="0">
+              <properties />
+            </test-case>
+            <test-case id="1080" name="SegmentFollowerReleasesJunctionLockAtExitCenter" fullname="TankTrouble.Tests.AIBehaviorTests.SegmentFollowerReleasesJunctionLockAtExitCenter" methodname="SegmentFollowerReleasesJunctionLockAtExitCenter" classname="TankTrouble.Tests.AIBehaviorTests" runstate="Runnable" seed="916446945" result="Passed" start-time="2026-06-29 14:13:14Z" end-time="2026-06-29 14:13:14Z" duration="0.000678" asserts="0">
+              <properties />
+            </test-case>
+            <test-case id="1075" name="SegmentFollowerTurnsInPlaceBeforeLeavingCenteredCell" fullname="TankTrouble.Tests.AIBehaviorTests.SegmentFollowerTurnsInPlaceBeforeLeavingCenteredCell" methodname="SegmentFollowerTurnsInPlaceBeforeLeavingCenteredCell" classname="TankTrouble.Tests.AIBehaviorTests" runstate="Runnable" seed="1811905084" result="Passed" start-time="2026-06-29 14:13:14Z" end-time="2026-06-29 14:13:14Z" duration="0.000440" asserts="0">
+              <properties />
+            </test-case>
+            <test-case id="1087" name="TankBlockedCommandDetectsRotationOnlyWallOverlap" fullname="TankTrouble.Tests.AIBehaviorTests.TankBlockedCommandDetectsRotationOnlyWallOverlap" methodname="TankBlockedCommandDetectsRotationOnlyWallOverlap" classname="TankTrouble.Tests.AIBehaviorTests" runstate="Runnable" seed="1847867914" result="Passed" start-time="2026-06-29 14:13:14Z" end-time="2026-06-29 14:13:14Z" duration="0.000560" asserts="0">
+              <properties />
+            </test-case>
+          </test-suite>
+          <test-suite type="TestFixture" id="1088" name="AiRuleTests" fullname="TankTrouble.Tests.AiRuleTests" classname="TankTrouble.Tests.AiRuleTests" runstate="Runnable" testcasecount="2" result="Passed" start-time="2026-06-29 14:13:14Z" end-time="2026-06-29 14:13:14Z" duration="0.003492" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-case id="1089" name="BallisticsSupportsAtLeastFourBounces" fullname="TankTrouble.Tests.AiRuleTests.BallisticsSupportsAtLeastFourBounces" methodname="BallisticsSupportsAtLeastFourBounces" classname="TankTrouble.Tests.AiRuleTests" runstate="Runnable" seed="2044647946" result="Passed" start-time="2026-06-29 14:13:14Z" end-time="2026-06-29 14:13:14Z" duration="0.000172" asserts="0">
+              <properties />
+            </test-case>
+            <test-case id="1090" name="DifficultySettingsMatchPygameBehavior" fullname="TankTrouble.Tests.AiRuleTests.DifficultySettingsMatchPygameBehavior" methodname="DifficultySettingsMatchPygameBehavior" classname="TankTrouble.Tests.AiRuleTests" runstate="Runnable" seed="175891877" result="Passed" start-time="2026-06-29 14:13:14Z" end-time="2026-06-29 14:13:14Z" duration="0.000404" asserts="0">
+              <properties />
+            </test-case>
+          </test-suite>
+          <test-suite type="TestFixture" id="1091" name="AudioRuleTests" fullname="TankTrouble.Tests.AudioRuleTests" classname="TankTrouble.Tests.AudioRuleTests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-06-29 14:13:14Z" end-time="2026-06-29 14:13:14Z" duration="0.000894" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-case id="1092" name="ProceduralSoundDurationsMatchPygameSource" fullname="TankTrouble.Tests.AudioRuleTests.ProceduralSoundDurationsMatchPygameSource" methodname="ProceduralSoundDurationsMatchPygameSource" classname="TankTrouble.Tests.AudioRuleTests" runstate="Runnable" seed="2046337988" result="Passed" start-time="2026-06-29 14:13:14Z" end-time="2026-06-29 14:13:14Z" duration="0.000362" asserts="0">
+              <properties />
+            </test-case>
+          </test-suite>
+          <test-suite type="TestFixture" id="1093" name="BulletRuleTests" fullname="TankTrouble.Tests.BulletRuleTests" classname="TankTrouble.Tests.BulletRuleTests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-06-29 14:13:14Z" end-time="2026-06-29 14:13:14Z" duration="0.002902" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-case id="1094" name="BulletDisappearsAfterSevenCompletedBouncesAndNextWallHit" fullname="TankTrouble.Tests.BulletRuleTests.BulletDisappearsAfterSevenCompletedBouncesAndNextWallHit" methodname="BulletDisappearsAfterSevenCompletedBouncesAndNextWallHit" classname="TankTrouble.Tests.BulletRuleTests" runstate="Runnable" seed="570841343" result="Passed" start-time="2026-06-29 14:13:14Z" end-time="2026-06-29 14:13:14Z" duration="0.000113" asserts="0">
+              <properties />
+            </test-case>
+          </test-suite>
+          <test-suite type="TestFixture" id="1095" name="CoordinateRuleTests" fullname="TankTrouble.Tests.CoordinateRuleTests" classname="TankTrouble.Tests.CoordinateRuleTests" runstate="Runnable" testcasecount="3" result="Passed" start-time="2026-06-29 14:13:14Z" end-time="2026-06-29 14:13:14Z" duration="0.004724" total="3" passed="3" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-case id="1097" name="CellCenterIncludesTopUiOffset" fullname="TankTrouble.Tests.CoordinateRuleTests.CellCenterIncludesTopUiOffset" methodname="CellCenterIncludesTopUiOffset" classname="TankTrouble.Tests.CoordinateRuleTests" runstate="Runnable" seed="677541590" result="Passed" start-time="2026-06-29 14:13:14Z" end-time="2026-06-29 14:13:14Z" duration="0.000141" asserts="0">
+              <properties />
+            </test-case>
+            <test-case id="1098" name="CellToPixelAndBackReturnsSameCell" fullname="TankTrouble.Tests.CoordinateRuleTests.CellToPixelAndBackReturnsSameCell" methodname="CellToPixelAndBackReturnsSameCell" classname="TankTrouble.Tests.CoordinateRuleTests" runstate="Runnable" seed="1077434646" result="Passed" start-time="2026-06-29 14:13:14Z" end-time="2026-06-29 14:13:14Z" duration="0.000424" asserts="0">
+              <properties />
+            </test-case>
+            <test-case id="1096" name="PixelWorldConversionRoundTrips" fullname="TankTrouble.Tests.CoordinateRuleTests.PixelWorldConversionRoundTrips" methodname="PixelWorldConversionRoundTrips" classname="TankTrouble.Tests.CoordinateRuleTests" runstate="Runnable" seed="437600808" result="Passed" start-time="2026-06-29 14:13:14Z" end-time="2026-06-29 14:13:14Z" duration="0.000635" asserts="0">
+              <properties />
+            </test-case>
+          </test-suite>
+          <test-suite type="TestFixture" id="1099" name="MapGenerationTests" fullname="TankTrouble.Tests.MapGenerationTests" classname="TankTrouble.Tests.MapGenerationTests" runstate="Runnable" testcasecount="3" result="Passed" start-time="2026-06-29 14:13:14Z" end-time="2026-06-29 14:13:14Z" duration="0.021204" total="3" passed="3" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-case id="1102" name="MergedWallSegmentsReduceColliderCount" fullname="TankTrouble.Tests.MapGenerationTests.MergedWallSegmentsReduceColliderCount" methodname="MergedWallSegmentsReduceColliderCount" classname="TankTrouble.Tests.MapGenerationTests" runstate="Runnable" seed="742569393" result="Passed" start-time="2026-06-29 14:13:14Z" end-time="2026-06-29 14:13:14Z" duration="0.008367" asserts="0">
+              <properties />
+            </test-case>
+            <test-case id="1100" name="PresetMapsAreReachable" fullname="TankTrouble.Tests.MapGenerationTests.PresetMapsAreReachable" methodname="PresetMapsAreReachable" classname="TankTrouble.Tests.MapGenerationTests" runstate="Runnable" seed="2020193595" result="Passed" start-time="2026-06-29 14:13:14Z" end-time="2026-06-29 14:13:14Z" duration="0.009663" asserts="0">
+              <properties />
+            </test-case>
+            <test-case id="1101" name="RandomMapIsReachable" fullname="TankTrouble.Tests.MapGenerationTests.RandomMapIsReachable" methodname="RandomMapIsReachable" classname="TankTrouble.Tests.MapGenerationTests" runstate="Runnable" seed="1083500394" result="Passed" start-time="2026-06-29 14:13:14Z" end-time="2026-06-29 14:13:14Z" duration="0.000223" asserts="0">
+              <properties />
+            </test-case>
+          </test-suite>
+          <test-suite type="TestFixture" id="1103" name="MenuConfigTests" fullname="TankTrouble.Tests.MenuConfigTests" classname="TankTrouble.Tests.MenuConfigTests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-06-29 14:13:14Z" end-time="2026-06-29 14:13:14Z" duration="0.001114" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-case id="1104" name="WinScoreOptionsMatchPygameSource" fullname="TankTrouble.Tests.MenuConfigTests.WinScoreOptionsMatchPygameSource" methodname="WinScoreOptionsMatchPygameSource" classname="TankTrouble.Tests.MenuConfigTests" runstate="Runnable" seed="1474500788" result="Passed" start-time="2026-06-29 14:13:14Z" end-time="2026-06-29 14:13:14Z" duration="0.000556" asserts="0">
+              <properties />
+            </test-case>
+          </test-suite>
+          <test-suite type="TestFixture" id="1105" name="PathfindingRuleTests" fullname="TankTrouble.Tests.PathfindingRuleTests" classname="TankTrouble.Tests.PathfindingRuleTests" runstate="Runnable" testcasecount="5" result="Passed" start-time="2026-06-29 14:13:14Z" end-time="2026-06-29 14:13:14Z" duration="0.006107" total="5" passed="5" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-case id="1110" name="ComfortPathAvoidsDangerBeforeComfort" fullname="TankTrouble.Tests.PathfindingRuleTests.ComfortPathAvoidsDangerBeforeComfort" methodname="ComfortPathAvoidsDangerBeforeComfort" classname="TankTrouble.Tests.PathfindingRuleTests" runstate="Runnable" seed="2125986010" result="Passed" start-time="2026-06-29 14:13:14Z" end-time="2026-06-29 14:13:14Z" duration="0.001967" asserts="0">
+              <properties />
+            </test-case>
+            <test-case id="1108" name="ComfortPathPrefersCenterRouteOverOuterRing" fullname="TankTrouble.Tests.PathfindingRuleTests.ComfortPathPrefersCenterRouteOverOuterRing" methodname="ComfortPathPrefersCenterRouteOverOuterRing" classname="TankTrouble.Tests.PathfindingRuleTests" runstate="Runnable" seed="843982988" result="Passed" start-time="2026-06-29 14:13:14Z" end-time="2026-06-29 14:13:14Z" duration="0.000432" asserts="0">
+              <properties />
+            </test-case>
+            <test-case id="1109" name="ComfortPathStillUsesRequiredNarrowCorridor" fullname="TankTrouble.Tests.PathfindingRuleTests.ComfortPathStillUsesRequiredNarrowCorridor" methodname="ComfortPathStillUsesRequiredNarrowCorridor" classname="TankTrouble.Tests.PathfindingRuleTests" runstate="Runnable" seed="777026754" result="Passed" start-time="2026-06-29 14:13:14Z" end-time="2026-06-29 14:13:14Z" duration="0.000236" asserts="0">
+              <properties />
+            </test-case>
+            <test-case id="1107" name="NearestSafeCellReturnsStartWhenStartIsAlreadySafe" fullname="TankTrouble.Tests.PathfindingRuleTests.NearestSafeCellReturnsStartWhenStartIsAlreadySafe" methodname="NearestSafeCellReturnsStartWhenStartIsAlreadySafe" classname="TankTrouble.Tests.PathfindingRuleTests" runstate="Runnable" seed="966979331" result="Passed" start-time="2026-06-29 14:13:14Z" end-time="2026-06-29 14:13:14Z" duration="0.000387" asserts="0">
+              <properties />
+            </test-case>
+            <test-case id="1106" name="PathfindingAvoidsDangerCellsWhenAlternativeExists" fullname="TankTrouble.Tests.PathfindingRuleTests.PathfindingAvoidsDangerCellsWhenAlternativeExists" methodname="PathfindingAvoidsDangerCellsWhenAlternativeExists" classname="TankTrouble.Tests.PathfindingRuleTests" runstate="Runnable" seed="1834764233" result="Passed" start-time="2026-06-29 14:13:14Z" end-time="2026-06-29 14:13:14Z" duration="0.000678" asserts="0">
+              <properties />
+            </test-case>
+          </test-suite>
+          <test-suite type="TestFixture" id="1111" name="RoundRulesTests" fullname="TankTrouble.Tests.RoundRulesTests" classname="TankTrouble.Tests.RoundRulesTests" runstate="Runnable" testcasecount="4" result="Passed" start-time="2026-06-29 14:13:14Z" end-time="2026-06-29 14:13:14Z" duration="0.005341" total="4" passed="4" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-suite type="ParameterizedMethod" id="1116" name="RoundEndsOnlyWhenAtMostOneTankIsAlive" fullname="TankTrouble.Tests.RoundRulesTests.RoundEndsOnlyWhenAtMostOneTankIsAlive" classname="TankTrouble.Tests.RoundRulesTests" runstate="Runnable" testcasecount="4" result="Passed" start-time="2026-06-29 14:13:14Z" end-time="2026-06-29 14:13:14Z" duration="0.004569" total="4" passed="4" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-case id="1112" name="RoundEndsOnlyWhenAtMostOneTankIsAlive(3,False)" fullname="TankTrouble.Tests.RoundRulesTests.RoundEndsOnlyWhenAtMostOneTankIsAlive(3,False)" methodname="RoundEndsOnlyWhenAtMostOneTankIsAlive" classname="TankTrouble.Tests.RoundRulesTests" runstate="Runnable" seed="2117330235" result="Passed" start-time="2026-06-29 14:13:14Z" end-time="2026-06-29 14:13:14Z" duration="0.000355" asserts="0">
+                <properties />
+              </test-case>
+              <test-case id="1113" name="RoundEndsOnlyWhenAtMostOneTankIsAlive(2,False)" fullname="TankTrouble.Tests.RoundRulesTests.RoundEndsOnlyWhenAtMostOneTankIsAlive(2,False)" methodname="RoundEndsOnlyWhenAtMostOneTankIsAlive" classname="TankTrouble.Tests.RoundRulesTests" runstate="Runnable" seed="1092314963" result="Passed" start-time="2026-06-29 14:13:14Z" end-time="2026-06-29 14:13:14Z" duration="0.000085" asserts="0">
+                <properties />
+              </test-case>
+              <test-case id="1114" name="RoundEndsOnlyWhenAtMostOneTankIsAlive(1,True)" fullname="TankTrouble.Tests.RoundRulesTests.RoundEndsOnlyWhenAtMostOneTankIsAlive(1,True)" methodname="RoundEndsOnlyWhenAtMostOneTankIsAlive" classname="TankTrouble.Tests.RoundRulesTests" runstate="Runnable" seed="10202146" result="Passed" start-time="2026-06-29 14:13:14Z" end-time="2026-06-29 14:13:14Z" duration="0.000055" asserts="0">
+                <properties />
+              </test-case>
+              <test-case id="1115" name="RoundEndsOnlyWhenAtMostOneTankIsAlive(0,True)" fullname="TankTrouble.Tests.RoundRulesTests.RoundEndsOnlyWhenAtMostOneTankIsAlive(0,True)" methodname="RoundEndsOnlyWhenAtMostOneTankIsAlive" classname="TankTrouble.Tests.RoundRulesTests" runstate="Runnable" seed="1389715148" result="Passed" start-time="2026-06-29 14:13:14Z" end-time="2026-06-29 14:13:14Z" duration="0.000049" asserts="0">
+                <properties />
+              </test-case>
+            </test-suite>
+          </test-suite>
+          <test-suite type="TestFixture" id="1117" name="ScoreRuleTests" fullname="TankTrouble.Tests.ScoreRuleTests" classname="TankTrouble.Tests.ScoreRuleTests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-06-29 14:13:14Z" end-time="2026-06-29 14:13:14Z" duration="0.009080" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-case id="1118" name="SurvivorScoreOnlyAwardsTheSoleAliveTank" fullname="TankTrouble.Tests.ScoreRuleTests.SurvivorScoreOnlyAwardsTheSoleAliveTank" methodname="SurvivorScoreOnlyAwardsTheSoleAliveTank" classname="TankTrouble.Tests.ScoreRuleTests" runstate="Runnable" seed="755972718" result="Passed" start-time="2026-06-29 14:13:14Z" end-time="2026-06-29 14:13:14Z" duration="0.006584" asserts="0">
+              <properties />
+            </test-case>
+          </test-suite>
+          <test-suite type="TestFixture" id="1119" name="SpawnRuleTests" fullname="TankTrouble.Tests.SpawnRuleTests" classname="TankTrouble.Tests.SpawnRuleTests" runstate="Runnable" testcasecount="2" result="Passed" start-time="2026-06-29 14:13:14Z" end-time="2026-06-29 14:13:14Z" duration="0.007963" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-case id="1121" name="PresetMapsCanPickThreeSpawns" fullname="TankTrouble.Tests.SpawnRuleTests.PresetMapsCanPickThreeSpawns" methodname="PresetMapsCanPickThreeSpawns" classname="TankTrouble.Tests.SpawnRuleTests" runstate="Runnable" seed="143338726" result="Passed" start-time="2026-06-29 14:13:14Z" end-time="2026-06-29 14:13:14Z" duration="0.006086" asserts="0">
+              <properties />
+            </test-case>
+            <test-case id="1120" name="ThreeTankSpawnPointsKeepMinimumDistanceOnRandomMap" fullname="TankTrouble.Tests.SpawnRuleTests.ThreeTankSpawnPointsKeepMinimumDistanceOnRandomMap" methodname="ThreeTankSpawnPointsKeepMinimumDistanceOnRandomMap" classname="TankTrouble.Tests.SpawnRuleTests" runstate="Runnable" seed="1212613698" result="Passed" start-time="2026-06-29 14:13:14Z" end-time="2026-06-29 14:13:14Z" duration="0.000515" asserts="0">
+              <properties />
+            </test-case>
+          </test-suite>
+          <test-suite type="TestFixture" id="1122" name="TankConfigTests" fullname="TankTrouble.Tests.TankConfigTests" classname="TankTrouble.Tests.TankConfigTests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-06-29 14:13:14Z" end-time="2026-06-29 14:13:14Z" duration="0.000616" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-case id="1123" name="TankAndBulletParametersMatchPygameSource" fullname="TankTrouble.Tests.TankConfigTests.TankAndBulletParametersMatchPygameSource" methodname="TankAndBulletParametersMatchPygameSource" classname="TankTrouble.Tests.TankConfigTests" runstate="Runnable" seed="1326611531" result="Passed" start-time="2026-06-29 14:13:14Z" end-time="2026-06-29 14:13:14Z" duration="0.000166" asserts="0">
+              <properties />
+            </test-case>
+          </test-suite>
+        </test-suite>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>
