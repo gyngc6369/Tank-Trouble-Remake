@@ -671,6 +671,199 @@ namespace TankTrouble.Tests
         }
 
         [Test]
+        public void SimplePlannerReturnsPathForAdjacentEnemy()
+        {
+            var map = new GridMap(3, 3);
+            map.FillAllWalls(false);
+            var enemyObject = new GameObject("Simple Planner Adjacent Enemy");
+            try
+            {
+                enemyObject.AddComponent<Rigidbody2D>();
+                enemyObject.AddComponent<BoxCollider2D>();
+                var enemy = enemyObject.AddComponent<TankController>();
+                enemyObject.transform.position = TankTrouble.Core.CoordinateUtil.CellToWorld(2, 1);
+                var planner = new AIGridPathPlanner();
+                var path = new List<Vector2Int>();
+
+                var found = planner.TryFindPathToNearestEnemy(
+                    map,
+                    new Vector2Int(1, 1),
+                    AIGridDirection.Right,
+                    new List<TankController> { enemy },
+                    null,
+                    path,
+                    out var goal);
+
+                Assert.IsTrue(found);
+                Assert.Greater(path.Count, 0);
+                Assert.AreNotEqual(new Vector2Int(1, 1), goal);
+            }
+            finally
+            {
+                Object.DestroyImmediate(enemyObject);
+            }
+        }
+
+        [Test]
+        public void SimplePlannerAvoidsTemporarilyBlacklistedEdge()
+        {
+            var map = new GridMap(3, 3);
+            map.FillAllWalls(false);
+            var enemyObject = new GameObject("Simple Planner Blacklist Enemy");
+            try
+            {
+                enemyObject.AddComponent<Rigidbody2D>();
+                enemyObject.AddComponent<BoxCollider2D>();
+                var enemy = enemyObject.AddComponent<TankController>();
+                enemyObject.transform.position = TankTrouble.Core.CoordinateUtil.CellToWorld(2, 1);
+                var blocked = new AIBlockedEdgeSet();
+                blocked.Add(new AIGridEdge(new Vector2Int(1, 1), new Vector2Int(2, 1)), 2f);
+                var planner = new AIGridPathPlanner();
+                var path = new List<Vector2Int>();
+
+                var found = planner.TryFindPathToNearestEnemy(
+                    map,
+                    new Vector2Int(1, 1),
+                    AIGridDirection.Right,
+                    new List<TankController> { enemy },
+                    blocked,
+                    path,
+                    out _);
+
+                Assert.IsTrue(found);
+                Assert.Greater(path.Count, 0);
+                Assert.AreNotEqual(new Vector2Int(2, 1), path[0]);
+            }
+            finally
+            {
+                Object.DestroyImmediate(enemyObject);
+            }
+        }
+
+        [Test]
+        public void SimplePathMotorTurnsInPlaceBeforeMoving()
+        {
+            var map = new GridMap(3, 3);
+            map.FillAllWalls(false);
+            var tankObject = new GameObject("Simple Motor Turn Tank");
+            try
+            {
+                tankObject.AddComponent<Rigidbody2D>();
+                tankObject.AddComponent<BoxCollider2D>();
+                var tank = tankObject.AddComponent<TankController>();
+                tankObject.transform.position = TankTrouble.Core.CoordinateUtil.CellToWorld(1, 1);
+                var motor = new AIPathMotor();
+                motor.SetPath(new List<Vector2Int> { new Vector2Int(2, 1) });
+
+                var command = motor.Tick(tank, map, 0.016f);
+
+                Assert.AreEqual(0f, command.Move);
+                Assert.AreNotEqual(0f, command.Rotate);
+                Assert.AreEqual(1, motor.RemainingWaypoints);
+            }
+            finally
+            {
+                Object.DestroyImmediate(tankObject);
+            }
+        }
+
+        [Test]
+        public void SimplePathMotorDoesNotConsumeWaypointBeforeCenter()
+        {
+            var map = new GridMap(3, 3);
+            map.FillAllWalls(false);
+            var tankObject = new GameObject("Simple Motor Midway Tank");
+            try
+            {
+                tankObject.AddComponent<Rigidbody2D>();
+                tankObject.AddComponent<BoxCollider2D>();
+                var tank = tankObject.AddComponent<TankController>();
+                var center = (Vector2)TankTrouble.Core.CoordinateUtil.CellToWorld(1, 1);
+                tankObject.transform.SetPositionAndRotation(center, Quaternion.Euler(0f, 0f, -90f));
+                var motor = new AIPathMotor();
+                motor.SetPath(new List<Vector2Int> { new Vector2Int(2, 1) });
+
+                motor.Tick(tank, map, 0.016f);
+                tankObject.transform.position = center + new Vector2(0.2f, 0f);
+                var command = motor.Tick(tank, map, 0.016f);
+
+                Assert.Greater(command.Move, 0.5f);
+                Assert.AreEqual(1, motor.RemainingWaypoints);
+            }
+            finally
+            {
+                Object.DestroyImmediate(tankObject);
+            }
+        }
+
+        [Test]
+        public void SimplePathMotorReportsBlockedEdgeWhenForwardProgressStalls()
+        {
+            var map = new GridMap(3, 3);
+            map.FillAllWalls(false);
+            var tankObject = new GameObject("Simple Motor Stalled Tank");
+            try
+            {
+                tankObject.AddComponent<Rigidbody2D>();
+                tankObject.AddComponent<BoxCollider2D>();
+                var tank = tankObject.AddComponent<TankController>();
+                tankObject.transform.SetPositionAndRotation(
+                    TankTrouble.Core.CoordinateUtil.CellToWorld(1, 1),
+                    Quaternion.Euler(0f, 0f, -90f));
+                var motor = new AIPathMotor();
+                motor.SetPath(new List<Vector2Int> { new Vector2Int(2, 1) });
+
+                for (var i = 0; i < 8; i++)
+                    motor.Tick(tank, map, 0.1f);
+
+                Assert.IsTrue(motor.Failed);
+                Assert.AreEqual(new AIGridEdge(new Vector2Int(1, 1), new Vector2Int(2, 1)), motor.FailedEdge);
+            }
+            finally
+            {
+                Object.DestroyImmediate(tankObject);
+            }
+        }
+
+        [Test]
+        public void SimpleStateMachineDangerInterruptStopsNavigation()
+        {
+            var map = new GridMap(3, 3);
+            map.FillAllWalls(false);
+            var tankObject = new GameObject("Simple State Tank");
+            var enemyObject = new GameObject("Simple State Enemy");
+            try
+            {
+                tankObject.AddComponent<Rigidbody2D>();
+                tankObject.AddComponent<BoxCollider2D>();
+                var tank = tankObject.AddComponent<TankController>();
+                tankObject.transform.position = TankTrouble.Core.CoordinateUtil.CellToWorld(1, 1);
+
+                enemyObject.AddComponent<Rigidbody2D>();
+                enemyObject.AddComponent<BoxCollider2D>();
+                var enemy = enemyObject.AddComponent<TankController>();
+                enemyObject.transform.position = TankTrouble.Core.CoordinateUtil.CellToWorld(2, 1);
+
+                var stateMachine = new AISimpleStateMachine();
+                var command = stateMachine.Tick(
+                    tank,
+                    map,
+                    new List<TankController> { enemy },
+                    dangerInterrupt: true,
+                    dt: 0.016f);
+
+                Assert.AreEqual(0f, command.Move);
+                Assert.AreEqual(0f, command.Rotate);
+                Assert.AreEqual(AISimpleState.DangerPause, stateMachine.State);
+            }
+            finally
+            {
+                Object.DestroyImmediate(tankObject);
+                Object.DestroyImmediate(enemyObject);
+            }
+        }
+
+        [Test]
         public void TankBlockedCommandDetectsRotationOnlyWallOverlap()
         {
             var tankObject = new GameObject("Rotation Block Tank");

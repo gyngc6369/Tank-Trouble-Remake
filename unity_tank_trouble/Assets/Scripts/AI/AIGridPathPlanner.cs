@@ -38,6 +38,9 @@ namespace TankTrouble.AI
             for (var i = 0; i < candidates.Count; i++)
             {
                 var candidate = candidates[i];
+                if (candidate == start)
+                    continue;
+
                 if (!TryFindPath(grid, start, startFacing, candidate, blockedEdges, scratchPath))
                     continue;
 

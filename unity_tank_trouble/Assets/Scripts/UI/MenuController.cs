@@ -32,6 +32,7 @@ namespace TankTrouble.UI
         {
             if (gameManager == null)
                 gameManager = FindObjectOfType<GameManager>();
+            EnsureMainQuitButton();
         }
 
         private void Start()
@@ -144,6 +145,11 @@ namespace TankTrouble.UI
             ShowMapSelect();
         }
 
+        public void QuitGame()
+        {
+            ApplicationQuitService.Quit();
+        }
+
         private void StartPendingGame()
         {
             SetPanel(mainPanel, false);
@@ -177,6 +183,7 @@ namespace TankTrouble.UI
             if (Input.GetKeyDown(KeyCode.Alpha1) || Input.GetKeyDown(KeyCode.Keypad1)) SelectPvp();
             else if (Input.GetKeyDown(KeyCode.Alpha2) || Input.GetKeyDown(KeyCode.Keypad2)) SelectPvAi();
             else if (Input.GetKeyDown(KeyCode.Alpha3) || Input.GetKeyDown(KeyCode.Keypad3)) SelectPvpAi();
+            else if (Input.GetKeyDown(KeyCode.Q) || Input.GetKeyDown(KeyCode.Escape)) QuitGame();
         }
 
         private void HandleMapKeyboard()
@@ -224,6 +231,55 @@ namespace TankTrouble.UI
         {
             if (panel != null)
                 panel.SetActive(active);
+        }
+
+        private void EnsureMainQuitButton()
+        {
+            if (mainPanel == null || mainPanel.transform.Find("QuitButton") != null)
+                return;
+
+            if (mainPanel.TryGetComponent<RectTransform>(out var panelRect) && panelRect.sizeDelta.y < 430f)
+                panelRect.sizeDelta = new Vector2(panelRect.sizeDelta.x, 430f);
+
+            var go = new GameObject("QuitButton");
+            go.transform.SetParent(mainPanel.transform, false);
+            var rect = go.AddComponent<RectTransform>();
+            rect.sizeDelta = new Vector2(320f, 48f);
+
+            var layout = go.AddComponent<LayoutElement>();
+            layout.preferredWidth = 320f;
+            layout.preferredHeight = 48f;
+            layout.minWidth = 320f;
+            layout.minHeight = 48f;
+
+            var image = go.AddComponent<Image>();
+            image.color = new Color32(248, 248, 248, 255);
+            var button = go.AddComponent<Button>();
+            button.targetGraphic = image;
+            button.onClick.AddListener(QuitGame);
+
+            var text = new GameObject("Text");
+            text.transform.SetParent(go.transform, false);
+            var textRect = text.AddComponent<RectTransform>();
+            textRect.anchorMin = Vector2.zero;
+            textRect.anchorMax = Vector2.one;
+            textRect.offsetMin = Vector2.zero;
+            textRect.offsetMax = Vector2.zero;
+            var label = text.AddComponent<Text>();
+            label.text = "退出游戏";
+            label.font = GetDefaultFont();
+            label.fontSize = 20;
+            label.alignment = TextAnchor.MiddleCenter;
+            label.color = new Color32(28, 28, 28, 255);
+        }
+
+        private static Font GetDefaultFont()
+        {
+            var font = Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
+            if (font != null)
+                return font;
+
+            return Font.CreateDynamicFontFromOSFont("Arial", 18);
         }
 
         private static string GetMapName(MapKind mapKind)

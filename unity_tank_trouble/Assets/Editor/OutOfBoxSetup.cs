@@ -281,25 +281,31 @@ namespace TankTrouble.Editor
             var subtitle = CreateText("Subtitle", overlay.transform, string.Empty, 26, TextAnchor.MiddleCenter, new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(0f, -45f), new Vector2(760f, 60f));
             subtitle.color = Color.white;
 
-            var pauseActions = CreatePanel("PauseActions", overlay.transform, new Color32(0, 0, 0, 0), new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(0f, -128f), new Vector2(620f, 54f));
+            var pauseActions = CreatePanel("PauseActions", overlay.transform, new Color32(0, 0, 0, 0), new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(0f, -128f), new Vector2(780f, 54f));
             var resume = CreateButton("ResumeButton", pauseActions.transform, "继续", new Vector2(0.5f, 0.5f), new Vector2(150f, 46f));
             var restart = CreateButton("RestartButton", pauseActions.transform, "重新开始", new Vector2(0.5f, 0.5f), new Vector2(150f, 46f));
             var pauseMenu = CreateButton("MenuButton", pauseActions.transform, "返回主菜单", new Vector2(0.5f, 0.5f), new Vector2(150f, 46f));
-            SetAnchoredX(resume, -170f);
-            SetAnchoredX(restart, 0f);
-            SetAnchoredX(pauseMenu, 170f);
+            var pauseQuit = CreateButton("QuitButton", pauseActions.transform, "退出游戏", new Vector2(0.5f, 0.5f), new Vector2(150f, 46f));
+            SetAnchoredX(resume, -285f);
+            SetAnchoredX(restart, -95f);
+            SetAnchoredX(pauseMenu, 95f);
+            SetAnchoredX(pauseQuit, 285f);
             UnityEventTools.AddPersistentListener(resume.onClick, systems.GameManager.Resume);
             UnityEventTools.AddPersistentListener(restart.onClick, systems.GameManager.RestartMatch);
             UnityEventTools.AddPersistentListener(pauseMenu.onClick, systems.GameManager.ReturnToMainMenu);
+            UnityEventTools.AddPersistentListener(pauseQuit.onClick, systems.GameManager.QuitGame);
             pauseActions.SetActive(false);
 
-            var gameOverActions = CreatePanel("GameOverActions", overlay.transform, new Color32(0, 0, 0, 0), new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(0f, -128f), new Vector2(430f, 54f));
+            var gameOverActions = CreatePanel("GameOverActions", overlay.transform, new Color32(0, 0, 0, 0), new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(0f, -128f), new Vector2(620f, 54f));
             var rematch = CreateButton("RematchButton", gameOverActions.transform, "再来一局", new Vector2(0.5f, 0.5f), new Vector2(150f, 46f));
             var gameOverMenu = CreateButton("GameOverMenuButton", gameOverActions.transform, "返回主菜单", new Vector2(0.5f, 0.5f), new Vector2(150f, 46f));
-            SetAnchoredX(rematch, -95f);
-            SetAnchoredX(gameOverMenu, 95f);
+            var gameOverQuit = CreateButton("GameOverQuitButton", gameOverActions.transform, "退出游戏", new Vector2(0.5f, 0.5f), new Vector2(150f, 46f));
+            SetAnchoredX(rematch, -190f);
+            SetAnchoredX(gameOverMenu, 0f);
+            SetAnchoredX(gameOverQuit, 190f);
             UnityEventTools.AddPersistentListener(rematch.onClick, systems.GameManager.RestartMatch);
             UnityEventTools.AddPersistentListener(gameOverMenu.onClick, systems.GameManager.ReturnToMainMenu);
+            UnityEventTools.AddPersistentListener(gameOverQuit.onClick, systems.GameManager.QuitGame);
             gameOverActions.SetActive(false);
 
             SetObject(controller, "gameManager", systems.GameManager);
@@ -322,19 +328,22 @@ namespace TankTrouble.Editor
             rootRect.sizeDelta = Vector2.zero;
             var menu = menuRoot.AddComponent<MenuController>();
 
-            var main = CreatePanel("MainMenuPanel", menuRoot.transform, new Color32(255, 255, 255, 245), new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), Vector2.zero, new Vector2(420f, 360f));
+            var main = CreatePanel("MainMenuPanel", menuRoot.transform, new Color32(255, 255, 255, 245), new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), Vector2.zero, new Vector2(420f, 430f));
             ConfigureVerticalLayout(main, 28, 18, TextAnchor.MiddleCenter);
             var title = CreateText("Title", main.transform, "坦克动荡", 42, TextAnchor.MiddleCenter, Vector2.zero, Vector2.one, Vector2.zero, Vector2.zero);
             AddLayoutElement(title.gameObject, 360f, 72f);
             var pvp = CreateButton("PvpButton", main.transform, "1  双人对战", Vector2.zero, new Vector2(320f, 48f));
             var pvai = CreateButton("PvAiButton", main.transform, "2  单人 vs AI", Vector2.zero, new Vector2(320f, 48f));
             var pvpai = CreateButton("PvpAiButton", main.transform, "3  双人 + AI", Vector2.zero, new Vector2(320f, 48f));
+            var quit = CreateButton("QuitButton", main.transform, "退出游戏", Vector2.zero, new Vector2(320f, 48f));
             AddLayoutElement(pvp.gameObject, 320f, 48f);
             AddLayoutElement(pvai.gameObject, 320f, 48f);
             AddLayoutElement(pvpai.gameObject, 320f, 48f);
+            AddLayoutElement(quit.gameObject, 320f, 48f);
             UnityEventTools.AddPersistentListener(pvp.onClick, menu.SelectPvp);
             UnityEventTools.AddPersistentListener(pvai.onClick, menu.SelectPvAi);
             UnityEventTools.AddPersistentListener(pvpai.onClick, menu.SelectPvpAi);
+            UnityEventTools.AddPersistentListener(quit.onClick, menu.QuitGame);
 
             var map = CreatePanel("MapSelectPanel", menuRoot.transform, new Color32(255, 255, 255, 245), Vector2.zero, Vector2.one, Vector2.zero, Vector2.zero);
             CreateText("Title", map.transform, "选择地图", 38, TextAnchor.MiddleCenter, new Vector2(0.5f, 1f), new Vector2(0.5f, 1f), new Vector2(0f, -52f), new Vector2(500f, 60f));

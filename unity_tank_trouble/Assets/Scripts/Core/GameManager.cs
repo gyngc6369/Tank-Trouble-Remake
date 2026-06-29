@@ -97,6 +97,11 @@ namespace TankTrouble.Core
             StartConfiguredGame();
         }
 
+        public void QuitGame()
+        {
+            ApplicationQuitService.Quit();
+        }
+
         public void SetMode(GameMode newMode)
         {
             mode = newMode;

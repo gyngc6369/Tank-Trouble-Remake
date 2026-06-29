@@ -34,10 +34,16 @@ namespace TankTrouble.UI
                     Show("暂停", "选择操作", true, false);
                     break;
                 case GameState.GameOver:
-                    Show("游戏结束", roundManager.MatchWinner != null ? "胜者已达成目标分数" : "无人获胜", false, true);
+                    Show("游戏结束", roundManager.MatchWinner != null ? "胜者已达到目标分数" : "无人获胜", false, true);
                     break;
                 case GameState.RoundEnd:
-                    Show("回合结束", roundManager.LastRoundWinner != null ? $"幸存者得分，下一回合 {Mathf.CeilToInt(roundManager.RoundEndRemaining)}" : $"下一回合 {Mathf.CeilToInt(roundManager.RoundEndRemaining)}", false, false);
+                    Show(
+                        "回合结束",
+                        roundManager.LastRoundWinner != null
+                            ? $"幸存者得分，下一回合 {Mathf.CeilToInt(roundManager.RoundEndRemaining)}"
+                            : $"下一回合 {Mathf.CeilToInt(roundManager.RoundEndRemaining)}",
+                        false,
+                        false);
                     break;
                 case GameState.GamePlaying when roundManager.Phase == RoundPhase.Countdown:
                     var value = roundManager.CountdownRemaining > 0.6f ? Mathf.CeilToInt(roundManager.CountdownRemaining).ToString() : "开始";
@@ -74,24 +80,24 @@ namespace TankTrouble.UI
                 return;
 
             if (pauseActionsRoot == null)
-            {
-                pauseActionsRoot = CreateActionRoot("PauseActions", -128f);
-                CreateActionButton(pauseActionsRoot.transform, "ResumeButton", "继续", () => gameManager.Resume(), -170f);
-                CreateActionButton(pauseActionsRoot.transform, "RestartButton", "重新开始", () => gameManager.RestartMatch(), 0f);
-                CreateActionButton(pauseActionsRoot.transform, "MenuButton", "返回主菜单", () => gameManager.ReturnToMainMenu(), 170f);
-            }
+                pauseActionsRoot = CreateActionRoot("PauseActions", -128f, 780f);
+            SetActionRootSize(pauseActionsRoot, 780f);
+            EnsureActionButton(pauseActionsRoot.transform, "ResumeButton", "继续", () => gameManager.Resume(), -285f);
+            EnsureActionButton(pauseActionsRoot.transform, "RestartButton", "重新开始", () => gameManager.RestartMatch(), -95f);
+            EnsureActionButton(pauseActionsRoot.transform, "MenuButton", "返回主菜单", () => gameManager.ReturnToMainMenu(), 95f);
+            EnsureActionButton(pauseActionsRoot.transform, "QuitButton", "退出游戏", () => gameManager.QuitGame(), 285f);
 
             if (gameOverActionsRoot == null)
-            {
-                gameOverActionsRoot = CreateActionRoot("GameOverActions", -128f);
-                CreateActionButton(gameOverActionsRoot.transform, "RematchButton", "再来一局", () => gameManager.RestartMatch(), -95f);
-                CreateActionButton(gameOverActionsRoot.transform, "GameOverMenuButton", "返回主菜单", () => gameManager.ReturnToMainMenu(), 95f);
-            }
+                gameOverActionsRoot = CreateActionRoot("GameOverActions", -128f, 620f);
+            SetActionRootSize(gameOverActionsRoot, 620f);
+            EnsureActionButton(gameOverActionsRoot.transform, "RematchButton", "再来一局", () => gameManager.RestartMatch(), -190f);
+            EnsureActionButton(gameOverActionsRoot.transform, "GameOverMenuButton", "返回主菜单", () => gameManager.ReturnToMainMenu(), 0f);
+            EnsureActionButton(gameOverActionsRoot.transform, "GameOverQuitButton", "退出游戏", () => gameManager.QuitGame(), 190f);
 
             SetActionRoots(false, false);
         }
 
-        private GameObject CreateActionRoot(string objectName, float y)
+        private GameObject CreateActionRoot(string objectName, float y, float width)
         {
             var root = new GameObject(objectName);
             root.transform.SetParent(overlayRoot.transform, false);
@@ -100,8 +106,22 @@ namespace TankTrouble.UI
             rect.anchorMax = new Vector2(0.5f, 0.5f);
             rect.pivot = new Vector2(0.5f, 0.5f);
             rect.anchoredPosition = new Vector2(0f, y);
-            rect.sizeDelta = new Vector2(620f, 54f);
+            rect.sizeDelta = new Vector2(width, 54f);
             return root;
+        }
+
+        private static void SetActionRootSize(GameObject root, float width)
+        {
+            if (root != null && root.TryGetComponent<RectTransform>(out var rect))
+                rect.sizeDelta = new Vector2(width, rect.sizeDelta.y);
+        }
+
+        private static void EnsureActionButton(Transform parent, string objectName, string label, UnityEngine.Events.UnityAction action, float x)
+        {
+            if (parent == null || parent.Find(objectName) != null)
+                return;
+
+            CreateActionButton(parent, objectName, label, action, x);
         }
 
         private static void CreateActionButton(Transform parent, string objectName, string label, UnityEngine.Events.UnityAction action, float x)
