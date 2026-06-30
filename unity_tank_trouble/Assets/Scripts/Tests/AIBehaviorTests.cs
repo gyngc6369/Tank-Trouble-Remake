@@ -854,7 +854,136 @@ namespace TankTrouble.Tests
 
                 Assert.AreEqual(0f, command.Move);
                 Assert.AreEqual(0f, command.Rotate);
-                Assert.AreEqual(AISimpleState.DangerPause, stateMachine.State);
+                Assert.AreEqual(AISimpleState.Idle, stateMachine.State);
+            }
+            finally
+            {
+                Object.DestroyImmediate(tankObject);
+                Object.DestroyImmediate(enemyObject);
+            }
+        }
+
+        [Test]
+        public void SimpleStateMachinePlansToPreferredGoal()
+        {
+            var map = new GridMap(4, 3);
+            map.FillAllWalls(false);
+            var tankObject = new GameObject("Simple Preferred Goal Tank");
+            var enemyObject = new GameObject("Simple Preferred Goal Enemy");
+            try
+            {
+                tankObject.AddComponent<Rigidbody2D>();
+                tankObject.AddComponent<BoxCollider2D>();
+                var tank = tankObject.AddComponent<TankController>();
+                tankObject.transform.position = TankTrouble.Core.CoordinateUtil.CellToWorld(1, 1);
+
+                enemyObject.AddComponent<Rigidbody2D>();
+                enemyObject.AddComponent<BoxCollider2D>();
+                var enemy = enemyObject.AddComponent<TankController>();
+                enemyObject.transform.position = TankTrouble.Core.CoordinateUtil.CellToWorld(0, 1);
+
+                var preferredGoal = new Vector2Int(3, 1);
+                var stateMachine = new AISimpleStateMachine();
+                stateMachine.Tick(
+                    tank,
+                    map,
+                    new List<TankController> { enemy },
+                    dangerInterrupt: false,
+                    hasPreferredGoal: true,
+                    preferredGoal: preferredGoal,
+                    dt: 0.016f);
+
+                Assert.AreEqual(preferredGoal, stateMachine.CurrentGoal);
+                Assert.Greater(stateMachine.RemainingWaypoints, 0);
+            }
+            finally
+            {
+                Object.DestroyImmediate(tankObject);
+                Object.DestroyImmediate(enemyObject);
+            }
+        }
+
+        [Test]
+        public void GridDistanceFieldMarksBlockedCellsUnreachable()
+        {
+            var map = new GridMap(2, 1);
+            map.FillAllWalls(false);
+            map.SetWall(0, 0, WallDirection.Right, true);
+
+            var field = new AIGridDistanceField();
+            field.Build(map, new Vector2Int(0, 0));
+
+            Assert.AreEqual(0, field.GetDistance(new Vector2Int(0, 0)));
+            Assert.AreEqual(-1, field.GetDistance(new Vector2Int(1, 0)));
+        }
+
+        [Test]
+        public void AdvantagePlannerFindsShootableGoalAtUsefulRange()
+        {
+            var map = new GridMap(7, 3);
+            map.FillAllWalls(false);
+            var tankObject = new GameObject("Advantage Planner Tank");
+            var enemyObject = new GameObject("Advantage Planner Enemy");
+            try
+            {
+                var tank = CreateTestTank(tankObject, TankTrouble.Core.CoordinateUtil.CellToWorld(0, 1));
+                var enemy = CreateTestTank(enemyObject, TankTrouble.Core.CoordinateUtil.CellToWorld(6, 1));
+                Physics2D.SyncTransforms();
+                var planner = new AIAdvantageGoalPlanner();
+
+                var found = planner.TryFindGoal(
+                    tank,
+                    map,
+                    new List<TankController> { enemy },
+                    new DangerField(),
+                    LayerMask.GetMask("Wall"),
+                    GetTestTankMask(),
+                    out var goal);
+
+                var distanceToEnemy = Mathf.Abs(goal.Cell.x - 6) + Mathf.Abs(goal.Cell.y - 1);
+                Assert.IsTrue(found);
+                Assert.IsTrue(goal.IsValid);
+                Assert.AreEqual(enemy, goal.Target);
+                Assert.GreaterOrEqual(distanceToEnemy, 2);
+                Assert.LessOrEqual(distanceToEnemy, 6);
+            }
+            finally
+            {
+                Object.DestroyImmediate(tankObject);
+                Object.DestroyImmediate(enemyObject);
+            }
+        }
+
+        [Test]
+        public void AdvantagePlannerRejectsDangerousGoalCells()
+        {
+            var map = new GridMap(7, 3);
+            map.FillAllWalls(false);
+            var tankObject = new GameObject("Advantage Danger Tank");
+            var enemyObject = new GameObject("Advantage Danger Enemy");
+            try
+            {
+                var tank = CreateTestTank(tankObject, TankTrouble.Core.CoordinateUtil.CellToWorld(0, 1));
+                var enemy = CreateTestTank(enemyObject, TankTrouble.Core.CoordinateUtil.CellToWorld(6, 1));
+                Physics2D.SyncTransforms();
+                var danger = new DangerField();
+                var wallMask = LayerMask.GetMask("Wall");
+                var dangerousCenter = TankTrouble.Core.CoordinateUtil.CellToWorld(2, 1);
+                danger.AddPredictedShot(dangerousCenter + Vector2.left, Vector2.right, wallMask, 1.2f);
+                var planner = new AIAdvantageGoalPlanner();
+
+                var found = planner.TryFindGoal(
+                    tank,
+                    map,
+                    new List<TankController> { enemy },
+                    danger,
+                    wallMask,
+                    GetTestTankMask(),
+                    out var goal);
+
+                var selectedRisk = danger.GetRisk(TankTrouble.Core.CoordinateUtil.CellToWorld(goal.Cell.x, goal.Cell.y), 0f);
+                Assert.IsTrue(found);
+                Assert.Less(selectedRisk, 0.22f);
             }
             finally
             {
@@ -892,6 +1021,26 @@ namespace TankTrouble.Tests
             }
         }
 
+
+        private static TankController CreateTestTank(GameObject go, Vector2 position)
+        {
+            go.AddComponent<Rigidbody2D>();
+            var collider = go.AddComponent<BoxCollider2D>();
+            collider.size = new Vector2(0.42f, 0.42f);
+            var tankLayer = LayerMask.NameToLayer("Tank");
+            if (tankLayer >= 0)
+                go.layer = tankLayer;
+
+            var tank = go.AddComponent<TankController>();
+            go.transform.position = position;
+            return tank;
+        }
+
+        private static LayerMask GetTestTankMask()
+        {
+            var tankMask = LayerMask.GetMask("Tank");
+            return tankMask != 0 ? tankMask : LayerMask.GetMask("Default");
+        }
 
         private static GridMap CreateTJunctionMap()
         {

@@ -109,7 +109,7 @@ namespace TankTrouble.AI
             if (targetCell == currentCell)
                 return MoveToPoint(tank, position, (Vector2)CoordinateUtil.CellToWorld(targetCell.x, targetCell.y), dt, default, RecenterTimeout);
 
-            if (!AreAdjacent(currentCell, targetCell))
+            if (!AIGeometryUtils.AreAdjacent(currentCell, targetCell))
             {
                 MarkFailed(default);
                 return TankInputCommand.None;
@@ -262,7 +262,7 @@ namespace TankTrouble.AI
 
         private float GetLockedRotateInput(float signedAngle, float dt)
         {
-            var desired = RotateInputForAngle(signedAngle);
+            var desired = AIGeometryUtils.RotateInputForAngle(signedAngle);
             rotationLockTimer = Mathf.Max(0f, rotationLockTimer - Mathf.Max(0f, dt));
             if (!hasRotationLock || rotationLockTimer <= 0f)
             {
@@ -279,16 +279,6 @@ namespace TankTrouble.AI
             hasRotationLock = false;
             rotationLockTimer = 0f;
             lockedRotateInput = 0f;
-        }
-
-        private static bool AreAdjacent(Vector2Int a, Vector2Int b)
-        {
-            return Mathf.Abs(a.x - b.x) + Mathf.Abs(a.y - b.y) == 1;
-        }
-
-        private static float RotateInputForAngle(float signedAngle)
-        {
-            return signedAngle > 0f ? -1f : 1f;
         }
     }
 }

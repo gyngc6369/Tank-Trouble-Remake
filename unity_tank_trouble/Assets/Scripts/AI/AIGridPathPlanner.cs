@@ -239,9 +239,6 @@ namespace TankTrouble.AI
             return best;
         }
 
-        private static int Manhattan(Vector2Int a, Vector2Int b)
-        {
-            return Mathf.Abs(a.x - b.x) + Mathf.Abs(a.y - b.y);
-        }
+        private static int Manhattan(Vector2Int a, Vector2Int b) => AIGeometryUtils.Manhattan(a, b);
     }
 }

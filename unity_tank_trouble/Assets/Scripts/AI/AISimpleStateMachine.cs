@@ -10,7 +10,6 @@ namespace TankTrouble.AI
     {
         Idle,
         Navigate,
-        DangerPause,
         Recover
     }
 
@@ -19,7 +18,6 @@ namespace TankTrouble.AI
         private const float ReplanCooldown = 0.5f;
         private const float BlockedEdgeDuration = 2.4f;
         private const float RecoverDuration = 0.18f;
-        private const float DangerPauseDuration = 0.16f;
 
         private readonly AIGridPathPlanner planner = new AIGridPathPlanner();
         private readonly AIPathMotor motor = new AIPathMotor();
@@ -28,9 +26,9 @@ namespace TankTrouble.AI
 
         private float replanTimer;
         private float recoverTimer;
-        private float dangerPauseTimer;
         private TankInputCommand recoverCommand;
         private Vector2Int currentGoal;
+        private bool hasCurrentGoal;
 
         public AISimpleState State { get; private set; }
         public int BlacklistedEdgeCount => blockedEdges.Count;
@@ -44,9 +42,9 @@ namespace TankTrouble.AI
             currentPath.Clear();
             replanTimer = 0f;
             recoverTimer = 0f;
-            dangerPauseTimer = 0f;
             recoverCommand = TankInputCommand.None;
             currentGoal = default;
+            hasCurrentGoal = false;
             State = AISimpleState.Idle;
         }
 
@@ -55,6 +53,18 @@ namespace TankTrouble.AI
             GridMap grid,
             IReadOnlyList<TankController> enemies,
             bool dangerInterrupt,
+            float dt)
+        {
+            return Tick(tank, grid, enemies, dangerInterrupt, false, default, dt);
+        }
+
+        public TankInputCommand Tick(
+            TankController tank,
+            GridMap grid,
+            IReadOnlyList<TankController> enemies,
+            bool dangerInterrupt,
+            bool hasPreferredGoal,
+            Vector2Int preferredGoal,
             float dt)
         {
             blockedEdges.Tick(dt);
@@ -66,20 +76,15 @@ namespace TankTrouble.AI
                 return TankInputCommand.None;
             }
 
+            // Danger interrupt: clear navigation state so the controller can take over with evasion.
+            // The actual evasion movement is handled by AIController, not here.
             if (dangerInterrupt)
             {
                 motor.Clear();
                 currentPath.Clear();
-                dangerPauseTimer = DangerPauseDuration;
+                hasCurrentGoal = false;
                 replanTimer = ReplanCooldown;
-                State = AISimpleState.DangerPause;
-                return TankInputCommand.None;
-            }
-
-            if (dangerPauseTimer > 0f)
-            {
-                dangerPauseTimer = Mathf.Max(0f, dangerPauseTimer - Mathf.Max(0f, dt));
-                State = AISimpleState.DangerPause;
+                State = AISimpleState.Idle;
                 return TankInputCommand.None;
             }
 
@@ -98,6 +103,7 @@ namespace TankTrouble.AI
 
                 motor.Clear();
                 currentPath.Clear();
+                hasCurrentGoal = false;
                 replanTimer = ReplanCooldown;
                 recoverTimer = RecoverDuration;
                 recoverCommand = new TankInputCommand(-0.45f, 0f, false);
@@ -111,13 +117,14 @@ namespace TankTrouble.AI
                 return command;
             }
 
-            if (replanTimer > 0f)
+            var preferredChanged = hasPreferredGoal && (!hasCurrentGoal || currentGoal != preferredGoal);
+            if (replanTimer > 0f && !preferredChanged)
             {
                 State = AISimpleState.Idle;
                 return TankInputCommand.None;
             }
 
-            if (!TryPlanPath(tank, grid, enemies))
+            if (!TryPlanPath(tank, grid, enemies, hasPreferredGoal, preferredGoal))
             {
                 State = AISimpleState.Idle;
                 replanTimer = ReplanCooldown;
@@ -130,13 +137,25 @@ namespace TankTrouble.AI
             return command;
         }
 
-        private bool TryPlanPath(TankController tank, GridMap grid, IReadOnlyList<TankController> enemies)
+        private bool TryPlanPath(TankController tank, GridMap grid, IReadOnlyList<TankController> enemies, bool hasPreferredGoal, Vector2Int preferredGoal)
         {
             var currentCell = CoordinateUtil.PixelToCell(CoordinateUtil.WorldToPixel(tank.transform.position));
             var facing = AIGridDirections.FromForward(tank.VelocityForward);
+            if (hasPreferredGoal && grid.IsInside(preferredGoal.x, preferredGoal.y))
+            {
+                if (planner.TryFindPath(grid, currentCell, facing, preferredGoal, blockedEdges, currentPath))
+                {
+                    currentGoal = preferredGoal;
+                    hasCurrentGoal = true;
+                    motor.SetPath(currentPath);
+                    return true;
+                }
+            }
+
             if (!planner.TryFindPathToNearestEnemy(grid, currentCell, facing, enemies, blockedEdges, currentPath, out currentGoal))
                 return false;
 
+            hasCurrentGoal = true;
             motor.SetPath(currentPath);
             return true;
         }
